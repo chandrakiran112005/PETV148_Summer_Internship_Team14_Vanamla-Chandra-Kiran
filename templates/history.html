@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="top-card">
+
+    <h1>Password Analysis History</h1>
+
+    <p>Previously analyzed passwords</p>
+
+</div>
+
+<div class="analysis-card">
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <th>Username</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>NIST</th>
+            <th>OWASP</th>
+            <th>Date</th>
+            <th>Time</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% if history %}
+
+            {% for row in history %}
+
+            <tr>
+
+                <td>{{ row[0] }}</td>
+
+                <td>{{ row[1] }}%</td>
+
+                <td>
+
+                    {% if row[2] == "Strong" %}
+
+                        🟢 Strong
+
+                    {% elif row[2] == "Medium" %}
+
+                        🟡 Medium
+
+                    {% else %}
+
+                        🔴 Weak
+
+                    {% endif %}
+
+                </td>
+
+                <td>{{ row[3] }}%</td>
+
+                <td>{{ row[4] }}%</td>
+
+                <td>{{ row[5] }}</td>
+
+                <td>{{ row[6] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="7" style="text-align:center;">
+
+                    No Password Analysis History Found
+
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

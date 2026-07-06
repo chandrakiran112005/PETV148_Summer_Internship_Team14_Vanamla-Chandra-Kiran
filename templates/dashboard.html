@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="top-card">
+
+        <h1>Password Policy Compliance Auditor</h1>
+
+        <p>Analyze passwords using NIST SP 800-63B & OWASP Guidelines</p>
+
+    </div>
+
+    <div class="analysis-card">
+
+        <form action="/analyze" method="POST">
+
+            <div class="input-group">
+
+                <label>Email / Username</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="example@lpu.com"
+                    required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required>
+
+                    <button
+                        type="button"
+                        class="eye"
+                        onclick="togglePassword()">
+
+                        👁
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button class="analyze-btn">
+
+                Analyze Password
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>NIST Guidelines</h3>
+
+            <ul>
+
+                <li>✔ Minimum 12 Characters</li>
+
+                <li>✔ Avoid Dictionary Passwords</li>
+
+                <li>✔ Avoid Username in Password</li>
+
+                <li>✔ Use Random Characters</li>
+
+            </ul>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>OWASP Guidelines</h3>
+
+            <ul>
+
+                <li>✔ Uppercase Letter</li>
+
+                <li>✔ Lowercase Letter</li>
+
+                <li>✔ Number</li>
+
+                <li>✔ Special Character</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% endblock %}

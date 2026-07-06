@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Password Policy Compliance Auditor</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<h2>🛡 Password Policy</h2>
+
+<p>Compliance Auditor</p>
+
+</div>
+
+<nav>
+
+
+<a href="/">
+<i class="fa-solid fa-lock"></i>
+Password Auditor
+</a>
+
+<a href="/history">
+<i class="fa-solid fa-clock-rotate-left"></i>
+History
+</a>
+
+<a href="/reports">
+<i class="fa-solid fa-chart-column"></i>
+Reports
+</a>
+
+</nav>
+</div>
+
+<div class="content">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</body>
+
+</html>

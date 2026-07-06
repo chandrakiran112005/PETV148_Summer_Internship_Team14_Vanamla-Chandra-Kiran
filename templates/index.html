@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Password Policy Compliance Auditor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+
+        <h1>🛡 Password Policy</h1>
+        <h2>Compliance Auditor</h2>
+
+        <p>
+            Analyze password strength using modern cybersecurity standards.
+        </p>
+
+    </div>
+
+    <div class="right">
+
+        <div class="card">
+
+            <h2>Password Analysis</h2>
+
+            <form method="POST">
+
+                <label>Email / Username</label>
+
+                <input
+                type="text"
+                name="username"
+                placeholder="Enter Email"
+                required>
+
+                <label>Password</label>
+
+                <input
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                required>
+
+                <button>
+
+                    Analyze Password
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

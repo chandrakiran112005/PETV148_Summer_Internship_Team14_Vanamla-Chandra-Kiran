@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="top-card">
+
+<h1>Password Compliance Report</h1>
+
+<p>Statistics from all analyzed passwords</p>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Total Passwords</h3>
+<h1>{{ report.total }}</h1>
+</div>
+
+<div class="info-box">
+<h3>Strong</h3>
+<h1 style="color:#00ff99;">{{ report.strong }}</h1>
+</div>
+
+<div class="info-box">
+<h3>Medium</h3>
+<h1 style="color:orange;">{{ report.medium }}</h1>
+</div>
+
+<div class="info-box">
+<h3>Weak</h3>
+<h1 style="color:red;">{{ report.weak }}</h1>
+</div>
+
+<div class="info-box">
+<h3>Average Score</h3>
+<h1>{{ report.avg_score }}%</h1>
+</div>
+
+<div class="info-box">
+<h3>Average NIST</h3>
+<h1>{{ report.avg_nist }}%</h1>
+</div>
+
+<div class="info-box">
+<h3>Average OWASP</h3>
+<h1>{{ report.avg_owasp }}%</h1>
+</div>
+
+</div>
+
+{% endblock %}

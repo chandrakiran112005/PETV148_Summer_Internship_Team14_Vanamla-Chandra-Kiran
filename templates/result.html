@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="top-card">
+
+        <h1>Password Analysis Report</h1>
+
+        <p>User : <b>{{ username }}</b></p>
+
+    </div>
+
+    <div class="analysis-card">
+
+        <h2>Password Strength</h2>
+
+        <div class="progress">
+
+            <div class="progress-bar" style="width:{{ score }}%;">
+
+                {{ score }}%
+
+            </div>
+
+        </div>
+
+        <br>
+
+        {% if status=="Strong" %}
+
+        <h2 style="color:#00ff99;">🟢 {{ status }}</h2>
+
+        {% elif status=="Medium" %}
+
+        <h2 style="color:#ffc107;">🟡 {{ status }}</h2>
+
+        {% else %}
+
+        <h2 style="color:#ff4d4d;">🔴 {{ status }}</h2>
+
+        {% endif %}
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>Password Requirements</h3>
+
+            <table class="table">
+
+                {% for check in checks %}
+
+                <tr>
+
+                    <td>
+
+                        {% if check[1] %}
+
+                        ✅
+
+                        {% else %}
+
+                        ❌
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>{{ check[0] }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>Suggestions</h3>
+
+            <ul>
+
+                {% if suggestions %}
+
+                    {% for item in suggestions %}
+
+                        <li>➡ {{ item }}</li>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <li>🎉 Excellent! Your password follows all current rules.</li>
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>NIST Compliance</h3>
+
+            <h1 style="color:#00ff99;">{{ nist }}%</h1>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>OWASP Compliance</h3>
+
+            <h1 style="color:#00ff99;">{{ owasp }}%</h1>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="/" class="analyze-btn" style="text-decoration:none;text-align:center;display:block;">
+
+        Analyze Another Password
+
+    </a>
+
+</div>
+
+{% endblock %}
