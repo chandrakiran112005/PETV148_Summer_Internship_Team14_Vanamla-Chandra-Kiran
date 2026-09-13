@@ -82,16 +82,15 @@ def analyze_password(username, password):
     # -----------------------
     # Username Check
     # -----------------------
-   # Username Check
-username_parts = username.lower().split()
+    username_parts = username.lower().split()
 
-if any(part in password.lower() for part in username_parts):
-    checks.append(("Username Not Used", False))
-    suggestions.append("Do not include your username in the password.")
-else:
-    checks.append(("Username Not Used", True))
-    score += 10
-    nist += 10
+    if any(part in password.lower() for part in username_parts):
+        checks.append(("Username Not Used", False))
+        suggestions.append("Do not include your username in the password.")
+    else:
+        checks.append(("Username Not Used", True))
+        score += 10
+        nist += 10
 
     # -----------------------
     # Common Password
